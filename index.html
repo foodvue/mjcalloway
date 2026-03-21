@@ -157,10 +157,41 @@
     <section class="signup-sec">
       <div class="container">
         <p class="signup-line fi">New frameworks. New books. Delivered when they're ready.</p>
-        <div class="fi fi-d1">
-          <script async data-uid="3163b1c05e" src="https://closetheopening.kit.com/3163b1c05e/index.js"></script>
-        </div>
-        <p class="signup-note fi fi-d2">No spam. Unsubscribe anytime.</p>
+        <form class="signup-form fi fi-d1" id="newsletter-form">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Subscribe</button>
+        </form>
+        <p class="signup-note fi fi-d2" id="signup-note">No spam. Unsubscribe anytime.</p>
+        <script>
+          document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = this.querySelector('button');
+            var email = this.querySelector('input[name="email"]').value;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            fetch('https://api.convertkit.com/v3/forms/9233767/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                api_key: 'wJjLcl2cYB67ezCEj1a1LQ',
+                email: email
+              })
+            })
+            .then(function(r) {
+              if (!r.ok) throw new Error('fail');
+              return r.json();
+            })
+            .then(function() {
+              btn.textContent = 'Subscribed';
+              document.getElementById('signup-note').textContent = 'You\'re in. Watch your inbox.';
+            })
+            .catch(function() {
+              btn.disabled = false;
+              btn.textContent = 'Subscribe';
+              document.getElementById('signup-note').textContent = 'Something went wrong. Try again.';
+            });
+          });
+        </script>
       </div>
     </section>
 
