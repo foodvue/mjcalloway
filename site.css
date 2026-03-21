@@ -3144,3 +3144,15 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
 @media (max-width: 768px) {
   .hero--author { padding: 4rem 1.25rem 3.5rem; }
 }
+
+
+/* ===== BLOG CARD TAGS ===== */
+
+.blog-card-tag {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
