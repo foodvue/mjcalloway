@@ -3156,3 +3156,44 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
+
+/* === Article Email Signup CTA === */
+.article-signup {
+  margin: 3rem 0 2rem;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+}
+.article-signup-line {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.article-signup-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.article-signup-form .signup-input { flex: 1; }
+.article-signup-form .signup-btn { flex-shrink: 0; }
+.article-signup-note {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 0.75rem;
+}
+@media (max-width: 480px) {
+  .article-signup-form { flex-direction: column; }
+  .article-signup-form .signup-btn { width: 100%; }
+}
+
+/* Tactics EP description */
+.tactics-ep-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}

@@ -144,7 +144,17 @@
           <div class="blog-book-mention">
             <p>All 27 tactics, with real-world examples and clean responses, are covered in <a href="https://www.amazon.com/dp/B0GLDXFYY5" target="_blank" rel="noopener"><em>27 Psychological Tricks People Use on You</em></a>.</p>
           </div>
-        </div>
+    
+      <!-- Email capture CTA -->
+      <div class="article-signup fi">
+        <p class="article-signup-line">Get notified when new frameworks and articles drop.</p>
+        <form class="article-signup-form" id="article-newsletter-form">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Subscribe</button>
+        </form>
+        <p class="article-signup-note" id="article-signup-note">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
       </article>
     </div>
   </main>
@@ -169,6 +179,22 @@
       <p class="footer-copy">&copy; 2026 MJ Calloway</p>
     </div>
   </footer>
-  <script>const navToggle=document.querySelector('.nav-toggle');const siteNav=document.querySelector('.site-nav');navToggle.addEventListener('click',()=>{const isOpen=navToggle.classList.toggle('active');siteNav.classList.toggle('active');navToggle.setAttribute('aria-expanded',isOpen);});</script>
+  <script>const navToggle=document.querySelector('.nav-toggle');const siteNav=document.querySelector('.site-nav');navToggle.addEventListener('click',()=>{const isOpen=navToggle.classList.toggle('active');siteNav.classList.toggle('active');navToggle.setAttribute('aria-expanded',isOpen);});
+    // ConvertKit article signup
+    document.getElementById("article-newsletter-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = this.querySelector("input[name=email]").value;
+      const note = document.getElementById("article-signup-note");
+      try {
+        const res = await fetch("https://api.convertkit.com/v3/forms/9233767/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ api_key: "wJjLcl2cYB67ezCEj1a1LQ", email: email })
+        });
+        if (res.ok) { note.textContent = "You are in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true; }
+        else { note.textContent = "Something went wrong. Try again."; }
+      } catch(err) { note.textContent = "Something went wrong. Try again."; }
+    });
+  </script>
 </body>
 </html>

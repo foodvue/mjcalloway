@@ -140,6 +140,16 @@
       <p class="fi">The next time you pick up your phone without deciding to, the next time you open an app without meaning to, the next time you scroll for twenty minutes and can't remember what you were looking for, remember: that's not a character flaw. That's your brain responding exactly as it was designed to respond to stimuli that tech companies have deliberately engineered to be addictive. Variable rewards. Endless feeds. Red notification badges. None of it is accidental.</p>
 
       <p class="fi">Understanding the mechanism isn't an excuse. It's the information you need to actually fix the problem instead of just feeling bad about it.</p>
+
+      <!-- Email capture CTA -->
+      <div class="article-signup fi">
+        <p class="article-signup-line">Get notified when new frameworks and articles drop.</p>
+        <form class="article-signup-form" id="article-newsletter-form">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Subscribe</button>
+        </form>
+        <p class="article-signup-note" id="article-signup-note">No spam. Unsubscribe anytime.</p>
+      </div>
     </div>
   </main>
 
@@ -165,6 +175,21 @@
     t.addEventListener('click',()=>{const o=t.classList.toggle('active');n.classList.toggle('active');t.setAttribute('aria-expanded',o)});
     const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
     document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+    document.getElementById("article-newsletter-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = this.querySelector("input[name=email]").value;
+      const note = document.getElementById("article-signup-note");
+      try {
+        const res = await fetch("https://api.convertkit.com/v3/forms/9233767/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ api_key: "wJjLcl2cYB67ezCEj1a1LQ", email: email })
+        });
+        if (res.ok) { note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true; }
+        else { note.textContent = "Something went wrong. Try again."; }
+      } catch(err) { note.textContent = "Something went wrong. Try again."; }
+    });
   </script>
 </body>
 </html>
