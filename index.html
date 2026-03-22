@@ -53,10 +53,14 @@
       <div class="hero--author-inner">
         <h1 class="fi">MJ Calloway</h1>
         <p class="hero--author-sub fi fi-d1">Books about the patterns your brain runs without asking. The ones hiding in your conversations and the ones hiding in your phone.</p>
+        <div class="hero-ctas fi fi-d2">
+          <a href="/books/close-the-opening/assessment" class="btn-gold">Take the Free Assessment</a>
+          <a href="#books" class="btn-ghost">Explore the Books <span aria-hidden="true">&darr;</span></a>
+        </div>
       </div>
     </section>
 
-    <section class="books-sec section-border">
+    <section class="books-sec section-border" id="books">
       <div class="container--wide">
         <p class="label fi">Books</p>
         <div class="books-grid">
@@ -92,6 +96,25 @@
               <span class="book-card-link">Explore the book <span aria-hidden="true">&rarr;</span></span>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-proof-bar fi">
+      <div class="container">
+        <div class="proof-items">
+          <div class="proof-item">
+            <span class="proof-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="proof-text">on Amazon</span>
+          </div>
+          <span class="proof-divider" aria-hidden="true">&middot;</span>
+          <div class="proof-item">
+            <span class="proof-quote">&ldquo;This book can change your life.&rdquo;</span>
+          </div>
+          <span class="proof-divider" aria-hidden="true">&middot;</span>
+          <div class="proof-item">
+            <span class="proof-quote">&ldquo;I even identified ways I've been manipulated.&rdquo;</span>
+          </div>
         </div>
       </div>
     </section>
@@ -146,6 +169,26 @@
       </div>
     </section>
 
+    <section class="prelaunch-sec section-border">
+      <div class="container">
+        <p class="label fi">Coming Soon</p>
+        <h2 class="fi">The Digital Dopamine Detox</h2>
+        <p class="prelaunch-sub fi">A 30-day protocol for people who can't go offline. ADHD modifications in every chapter. Relapse framework included. Written by someone five years into maintenance who still watches YouTube shorts about woodworking.</p>
+        <div class="prelaunch-features fi">
+          <span class="book-card-tag">30-Day Protocol</span>
+          <span class="book-card-tag">ADHD Modifications</span>
+          <span class="book-card-tag">Relapse Framework</span>
+          <span class="book-card-tag">Can't-Go-Offline Friendly</span>
+        </div>
+        <p class="prelaunch-cta-line fi">Be the first to know when it drops.</p>
+        <form class="signup-form fi" id="prelaunch-form">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Notify Me</button>
+        </form>
+        <p class="signup-note fi" id="prelaunch-note">No spam. Just the launch date and a free preview.</p>
+      </div>
+    </section>
+
     <section class="about-sec section-border">
       <div class="container">
         <p class="label fi">About</p>
@@ -156,7 +199,7 @@
 
     <section class="signup-sec">
       <div class="container">
-        <p class="signup-line fi">New frameworks. New books. Delivered when they're ready.</p>
+        <p class="signup-line fi">Get new frameworks, articles, and book updates when they drop.</p>
         <form class="signup-form fi fi-d1" id="newsletter-form">
           <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
           <button type="submit" class="btn-gold signup-btn">Subscribe</button>
@@ -222,6 +265,29 @@
     navToggle.addEventListener('click',()=>{const o=navToggle.classList.toggle('active');siteNav.classList.toggle('active');navToggle.setAttribute('aria-expanded',o)});
     const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
     document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+    document.getElementById('prelaunch-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = this.querySelector('button');
+      var email = this.querySelector('input[name="email"]').value;
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      fetch('https://api.convertkit.com/v3/forms/9000393/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ api_key: 'wJjLcl2cYB67ezCEj1a1LQ', email: email })
+      })
+      .then(function(r) { if (!r.ok) throw new Error('fail'); return r.json(); })
+      .then(function() {
+        btn.textContent = 'You\'re on the list';
+        document.getElementById('prelaunch-note').textContent = 'We\'ll let you know the moment it drops.';
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Notify Me';
+        document.getElementById('prelaunch-note').textContent = 'Something went wrong. Try again.';
+      });
+    });
   </script>
 </body>
 </html>
