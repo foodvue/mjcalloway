@@ -3198,7 +3198,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   font-style: italic;
 }
 
-/* Social proof bar (homepage) */
+/* ===== NEW: Social proof bar (homepage) ===== */
 .social-proof-bar {
   padding: 2rem 0;
   border-top: 1px solid var(--border);
@@ -3242,7 +3242,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   .proof-items { flex-direction: column; gap: 0.75rem; }
 }
 
-/* Reviews section (book page) */
+/* ===== NEW: Reviews section (book page) ===== */
 .reviews-sec {
   margin-top: 3rem;
 }
@@ -3289,7 +3289,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   letter-spacing: 0.05em;
 }
 
-/* Pre-launch section (homepage) */
+/* ===== NEW: Pre-launch section (homepage) ===== */
 .prelaunch-sec {
   text-align: center;
   padding: 5rem 0;
@@ -3321,7 +3321,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   font-style: italic;
 }
 
-/* Hero CTAs centered on author homepage */
+/* ===== NEW: Hero CTAs centered on author homepage ===== */
 .hero--author .hero-ctas {
   justify-content: center;
   flex-wrap: wrap;
