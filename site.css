@@ -3360,3 +3360,33 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
 .related-articles a:hover {
   color: var(--gold);
 }
+
+/* Mid-page entry point CTA */
+.entry-point-cta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+.entry-point-cta-text {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Tactic related article links */
+.tactic-related {
+  margin-bottom: 0.25rem !important;
+  margin-top: -0.25rem;
+}
+.tactic-related a {
+  font-size: 0.85rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+.tactic-related a:hover {
+  text-decoration: underline;
+}
