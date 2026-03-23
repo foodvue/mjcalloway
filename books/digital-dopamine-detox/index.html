@@ -201,6 +201,7 @@
     </div>
   </footer>
 
+  <script src="/beehiiv.js"></script>
   <script>
     const t=document.querySelector('.nav-toggle'),n=document.querySelector('.site-nav');
     t.addEventListener('click',()=>{const o=t.classList.toggle('active');n.classList.toggle('active');t.setAttribute('aria-expanded',o)});
@@ -212,13 +213,8 @@
       const email = this.querySelector("input[name=email]").value;
       const note = document.getElementById("book-signup-note");
       try {
-        const res = await fetch("https://api.convertkit.com/v3/forms/9000393/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ api_key: "wJjLcl2cYB67ezCEj1a1LQ", email: email })
-        });
-        if (res.ok) { note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true; }
-        else { note.textContent = "Something went wrong. Try again."; }
+        await BEEHIIV.subscribe(email, 'newsletter');
+        note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true;
       } catch(err) { note.textContent = "Something went wrong. Try again."; }
     });
 
@@ -230,13 +226,8 @@
       btn.disabled = true;
       btn.textContent = "Subscribing...";
       try {
-        const res = await fetch("https://api.convertkit.com/v3/forms/9000393/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ api_key: "wJjLcl2cYB67ezCEj1a1LQ", email: email })
-        });
-        if (res.ok) { btn.textContent = "You're on the list"; note.textContent = "We'll let you know the moment it drops."; }
-        else { btn.disabled = false; btn.textContent = "Notify Me"; note.textContent = "Something went wrong. Try again."; }
+        await BEEHIIV.subscribe(email, 'dopamine_notify');
+        btn.textContent = "You're on the list"; note.textContent = "We'll let you know the moment it drops.";
       } catch(err) { btn.disabled = false; btn.textContent = "Notify Me"; note.textContent = "Something went wrong. Try again."; }
     });
   </script>

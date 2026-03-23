@@ -205,6 +205,7 @@
           <button type="submit" class="btn-gold signup-btn">Subscribe</button>
         </form>
         <p class="signup-note fi fi-d2" id="signup-note">No spam. Unsubscribe anytime.</p>
+        <script src="/beehiiv.js"></script>
         <script>
           document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -212,18 +213,7 @@
             var email = this.querySelector('input[name="email"]').value;
             btn.disabled = true;
             btn.textContent = 'Subscribing...';
-            fetch('https://api.convertkit.com/v3/forms/9000393/subscribe', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                api_key: 'wJjLcl2cYB67ezCEj1a1LQ',
-                email: email
-              })
-            })
-            .then(function(r) {
-              if (!r.ok) throw new Error('fail');
-              return r.json();
-            })
+            BEEHIIV.subscribe(email, 'newsletter')
             .then(function() {
               btn.textContent = 'Subscribed';
               document.getElementById('signup-note').textContent = 'You\'re in. Watch your inbox.';
@@ -272,12 +262,7 @@
       var email = this.querySelector('input[name="email"]').value;
       btn.disabled = true;
       btn.textContent = 'Subscribing...';
-      fetch('https://api.convertkit.com/v3/forms/9000393/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ api_key: 'wJjLcl2cYB67ezCEj1a1LQ', email: email })
-      })
-      .then(function(r) { if (!r.ok) throw new Error('fail'); return r.json(); })
+      BEEHIIV.subscribe(email, 'dopamine_notify')
       .then(function() {
         btn.textContent = 'You\'re on the list';
         document.getElementById('prelaunch-note').textContent = 'We\'ll let you know the moment it drops.';

@@ -1,11 +1,7 @@
 /**
  * Close The Opening - Entry Point Assessment
- * v2.0 — Social sharing, score visualization, email gate
+ * v2.1 — Social sharing, score visualization, email gate (Beehiiv)
  */
-
-// ConvertKit Config
-const CONVERTKIT_FORM_ID = '9000393';
-const CONVERTKIT_API_KEY = 'wJjLcl2cYB67ezCEj1a1LQ';
 
 const AMAZON_BOOK_URL = 'https://www.amazon.com/dp/B0GLDXFYY5';
 
@@ -734,37 +730,24 @@ function handleEmailSubmit(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
   
-  var formData = {
-    api_key: CONVERTKIT_API_KEY,
-    email: email,
-    fields: {
-      primary_entry_point: form.querySelector('input[name="primary"]').value,
-      secondary_entry_point: form.querySelector('input[name="secondary"]').value,
-      score_explainer: form.querySelector('input[name="score_explainer"]').value,
-      score_fixer: form.querySelector('input[name="score_fixer"]').value,
-      score_avoider: form.querySelector('input[name="score_avoider"]').value,
-      score_niceone: form.querySelector('input[name="score_niceone"]').value,
-      score_loyalone: form.querySelector('input[name="score_loyalone"]').value,
-      score_performer: form.querySelector('input[name="score_performer"]').value,
-      score_rationalizer: form.querySelector('input[name="score_rationalizer"]').value
-    }
-  };
+  var customFields = [
+    { name: 'primary_entry_point', value: primary },
+    { name: 'secondary_entry_point', value: secondary },
+    { name: 'score_explainer', value: form.querySelector('input[name="score_explainer"]').value },
+    { name: 'score_fixer', value: form.querySelector('input[name="score_fixer"]').value },
+    { name: 'score_avoider', value: form.querySelector('input[name="score_avoider"]').value },
+    { name: 'score_niceone', value: form.querySelector('input[name="score_niceone"]').value },
+    { name: 'score_loyalone', value: form.querySelector('input[name="score_loyalone"]').value },
+    { name: 'score_performer', value: form.querySelector('input[name="score_performer"]').value },
+    { name: 'score_rationalizer', value: form.querySelector('input[name="score_rationalizer"]').value }
+  ];
   
-  fetch('https://api.convertkit.com/v3/forms/' + CONVERTKIT_FORM_ID + '/subscribe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-  })
-  .then(function(response) {
-    if (!response.ok) throw new Error('ConvertKit submission failed');
-    return response.json();
-  })
+  BEEHIIV.subscribe(email, 'assessment', customFields)
   .then(function(data) {
     trackEmailSubmitted(primary, secondary);
     document.getElementById('email-gate').style.display = 'none';
     document.getElementById('gated-results').style.display = 'block';
     document.getElementById('full-results').classList.add('active');
-    // Smooth scroll to gated content
     document.getElementById('gated-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   })
   .catch(function(error) {

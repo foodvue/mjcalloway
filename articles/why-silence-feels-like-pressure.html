@@ -207,6 +207,7 @@
     </div>
   </footer>
 
+  <script src="/beehiiv.js"></script>
   <script>
     const navToggle = document.querySelector('.nav-toggle');
     const siteNav = document.querySelector('.site-nav');
@@ -222,13 +223,8 @@
       const email = this.querySelector("input[name=email]").value;
       const note = document.getElementById("article-signup-note");
       try {
-        const res = await fetch("https://api.convertkit.com/v3/forms/9000393/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ api_key: "wJjLcl2cYB67ezCEj1a1LQ", email: email })
-        });
-        if (res.ok) { note.textContent = "You are in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true; }
-        else { note.textContent = "Something went wrong. Try again."; }
+        await BEEHIIV.subscribe(email, 'article');
+        note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true;
       } catch(err) { note.textContent = "Something went wrong. Try again."; }
     });
   </script>
