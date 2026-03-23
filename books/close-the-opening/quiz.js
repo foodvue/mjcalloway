@@ -10,8 +10,8 @@ const CONVERTKIT_API_KEY = 'wJjLcl2cYB67ezCEj1a1LQ';
 const AMAZON_BOOK_URL = 'https://www.amazon.com/dp/B0GLDXFYY5';
 
 // Site URL for sharing
-const SITE_URL = 'https://closetheopening.com';
-const ASSESSMENT_URL = 'https://closetheopening.com/test.html';
+const SITE_URL = 'https://mjcalloway.com';
+const ASSESSMENT_URL = 'https://mjcalloway.com/books/close-the-opening/assessment';
 
 // Entry Point definitions
 const ENTRY_POINTS = {
