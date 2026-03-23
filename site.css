@@ -3198,7 +3198,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   font-style: italic;
 }
 
-/* ===== NEW: Social proof bar (homepage) ===== */
+/* Social proof bar (homepage) */
 .social-proof-bar {
   padding: 2rem 0;
   border-top: 1px solid var(--border);
@@ -3242,7 +3242,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   .proof-items { flex-direction: column; gap: 0.75rem; }
 }
 
-/* ===== NEW: Reviews section (book page) ===== */
+/* Reviews section (book page) */
 .reviews-sec {
   margin-top: 3rem;
 }
@@ -3289,7 +3289,7 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   letter-spacing: 0.05em;
 }
 
-/* ===== NEW: Pre-launch section (homepage) ===== */
+/* Pre-launch section (homepage) */
 .prelaunch-sec {
   text-align: center;
   padding: 5rem 0;
@@ -3321,9 +3321,42 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   font-style: italic;
 }
 
-/* ===== NEW: Hero CTAs centered on author homepage ===== */
+/* Hero CTAs centered on author homepage */
 .hero--author .hero-ctas {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
+}
+
+/* Related articles */
+.related-articles {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.related-articles h3 {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.related-articles li {
+  margin-bottom: 0.5rem;
+}
+.related-articles a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.related-articles a:hover {
+  color: var(--gold);
 }

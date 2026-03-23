@@ -43,7 +43,7 @@ const ENTRY_POINTS = {
       { name: 'The Moving Target', preview: 'You address their concern. They raise a new one. You\'re not making progress—you\'re running on a treadmill while they watch.' }
     ],
     bookCTA: 'The Explainer is targeted by 5 specific tactics—each designed to keep you talking past the point where your position was already clear. The book breaks down exactly what they sound like and the responses that end them in one sentence.',
-    shareText: 'My Entry Point is: The Explainer. I over-explain when challenged—and people use that opening.'
+    shareText: 'I'm The Explainer. There are seven entry points. Which one are you?'
   },
   fixer: {
     name: 'The Fixer',
@@ -77,7 +77,7 @@ const ENTRY_POINTS = {
       { name: 'The Slow Handoff', preview: '"Can you just help with this one small thing?" Then another. Then another. Zoom out and you\'re managing an entire responsibility that was never yours.' }
     ],
     bookCTA: 'The Fixer is targeted by 5 tactics that disguise requests as crises and helplessness as need. The book shows you exactly how the handoff happens—and the one-line responses that send the problem back where it belongs.',
-    shareText: 'My Entry Point is: The Fixer. I take on problems that aren\'t mine—and people use that opening.'
+    shareText: 'I'm The Fixer. There are seven entry points. Which one are you?'
   },
   avoider: {
     name: 'The Avoider',
@@ -111,7 +111,7 @@ const ENTRY_POINTS = {
       { name: 'The Tension Escalation', preview: 'They don\'t argue with logic—they argue with intensity. The volume, the tone, the energy. They\'re not trying to convince you. They\'re making it uncomfortable enough that you stop pushing.' }
     ],
     bookCTA: 'The Avoider is targeted by 5 tactics that weaponize discomfort. They don\'t need to be right—they just need to make it unpleasant enough that you fold. The book shows you how to hold your position when every instinct tells you to back down.',
-    shareText: 'My Entry Point is: The Avoider. I back down to end tension—and people use that opening.'
+    shareText: 'I'm The Avoider. There are seven entry points. Which one are you?'
   },
   niceone: {
     name: 'The Nice One',
@@ -145,7 +145,7 @@ const ENTRY_POINTS = {
       { name: 'The Comparison Guilt', preview: '"Your sister would have helped." "Nobody else has a problem with this." They\'re not informing you. They\'re positioning you as the selfish one so you\'ll comply to escape the label.' }
     ],
     bookCTA: 'The Nice One is targeted by 5 tactics that turn your kindness into a lever. They don\'t ask you to be less kind—they frame their requests so that kindness requires compliance. The book shows you how to separate the two.',
-    shareText: 'My Entry Point is: The Nice One. I say yes to avoid being the bad guy—and people use that opening.'
+    shareText: 'I'm The Nice One. There are seven entry points. Which one are you?'
   },
   loyalone: {
     name: 'The Loyal One',
@@ -179,7 +179,7 @@ const ENTRY_POINTS = {
       { name: 'The Debt Reminder', preview: '"Remember when I helped you move? When I was there for you during the divorce?" Past generosity becomes a present invoice. The unspoken message: you owe me compliance.' }
     ],
     bookCTA: 'The Loyal One is targeted by 5 tactics that weaponize history and shared experience. They use the past to override your present judgment. The book shows you how to honor what was without tolerating what is.',
-    shareText: 'My Entry Point is: The Loyal One. I stay too long because of history—and people use that opening.'
+    shareText: 'I'm The Loyal One. There are seven entry points. Which one are you?'
   },
   performer: {
     name: 'The Performer',
@@ -213,7 +213,7 @@ const ENTRY_POINTS = {
       { name: 'The Flattering Setup', preview: '"You\'re the only person I trust with this." The flattery makes declining feel like letting someone down. That\'s the point.' }
     ],
     bookCTA: 'The Performer is targeted by 5 tactics that exploit your need to prove yourself. They don\'t need to convince you—they just need to doubt you. Once. The book shows you how to recognize the challenge for what it is and walk away clean.',
-    shareText: 'My Entry Point is: The Performer. I say yes to prove I can—and people use that opening.'
+    shareText: 'I'm The Performer. There are seven entry points. Which one are you?'
   },
   rationalizer: {
     name: 'The Rationalizer',
@@ -247,7 +247,7 @@ const ENTRY_POINTS = {
       { name: 'The Memory Challenge', preview: '"That\'s not what happened." They contradict your memory with total confidence. You start questioning yourself. You were right. They were just louder.' }
     ],
     bookCTA: 'The Rationalizer is targeted by 5 tactics that substitute confidence for evidence. They don\'t need to be right—they just need to seem more sure than you. The book shows you how to hold your ground when someone else\'s certainty feels more real than your own.',
-    shareText: 'My Entry Point is: The Rationalizer. I defer to others\' certainty—and people use that opening.'
+    shareText: 'I'm The Rationalizer. There are seven entry points. Which one are you?'
   }
 };
 
