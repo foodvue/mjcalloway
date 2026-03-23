@@ -143,8 +143,13 @@
       </div>
 
       <div class="page-cta fi">
-        <a href="https://www.amazon.com/dp/B0GLDXFYY5" class="btn-accent" target="_blank" rel="noopener">Get the Full Protocol</a>
-        <p class="page-cta-sub">The Digital Dopamine Detox, available in Kindle and Paperback</p>
+        <p class="label">Coming Soon</p>
+        <p class="page-cta-sub">Be the first to know when The Digital Dopamine Detox drops.</p>
+        <form class="signup-form" id="protocol-notify-form" style="margin-top: 1rem;">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Notify Me</button>
+        </form>
+        <p class="signup-note" id="protocol-notify-note">No spam. Just the launch date and a free preview.</p>
         <div class="page-cta-divider"></div>
         <p class="page-cta-alt"><a href="/books/digital-dopamine-detox/">Back to the book</a></p>
       </div>
@@ -199,6 +204,24 @@
         if (res.ok) { note.textContent = "You're in. Watch your inbox."; this.querySelector('input').value = ''; this.querySelector('button').disabled = true; }
         else { note.textContent = 'Something went wrong. Try again.'; }
       } catch { note.textContent = 'Something went wrong. Try again.'; }
+    });
+
+    document.getElementById("protocol-notify-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = this.querySelector("input[name=email]").value;
+      const btn = this.querySelector("button");
+      const note = document.getElementById("protocol-notify-note");
+      btn.disabled = true;
+      btn.textContent = "Subscribing...";
+      try {
+        const res = await fetch("https://api.convertkit.com/v3/forms/9000393/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ api_key: "wJjLcl2cYB67ezCEj1a1LQ", email: email })
+        });
+        if (res.ok) { btn.textContent = "You're on the list"; note.textContent = "We'll let you know the moment it drops."; }
+        else { btn.disabled = false; btn.textContent = "Notify Me"; note.textContent = "Something went wrong. Try again."; }
+      } catch(err) { btn.disabled = false; btn.textContent = "Notify Me"; note.textContent = "Something went wrong. Try again."; }
     });
   </script>
 </body>
