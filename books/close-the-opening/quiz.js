@@ -559,10 +559,10 @@ function displayResults(primary, secondary, isDualProfile) {
   }
   html += '</div>';
   
-  // Tactic Previews
+  // Tactic Previews (2 shown, rest teased hard)
   html += '<div class="result-tactic-previews">';
   html += '<h3>Tactics that target ' + primaryData.name + '</h3>';
-  html += '<p class="tactic-previews-intro">These are the pressure tactics specifically designed to exploit your entry point:</p>';
+  html += '<p class="tactic-previews-intro">' + primaryData.tactics.length + ' pressure tactics are specifically designed to exploit your entry point. Here are two of them:</p>';
   for (var t = 0; t < primaryData.tacticPreviews.length; t++) {
     var tp = primaryData.tacticPreviews[t];
     html += '<div class="tactic-preview-card">';
@@ -571,25 +571,46 @@ function displayResults(primary, secondary, isDualProfile) {
     html += '</div>';
   }
   html += '<div class="tactic-preview-locked">';
-  html += '<p class="tactic-locked-names">';
-  for (var u = 2; u < primaryData.tactics.length; u++) {
-    html += primaryData.tactics[u];
-    if (u < primaryData.tactics.length - 1) html += ' · ';
-  }
-  html += '</p>';
-  html += '<p class="tactic-locked-text">+ ' + (primaryData.tactics.length - 2) + ' more tactics covered in the book →</p>';
+  html += '<p class="tactic-locked-text">The other ' + (primaryData.tactics.length - 2) + ' tactics that target ' + primaryData.name + ' are in the book. One of them is probably running in your life right now.</p>';
   html += '</div>';
+  html += '</div>';
+  
+  // What others pull + cost (keeps the sting going)
+  html += '<div class="result-cost-section">';
+  html += '<h3>What others pull from you</h3>';
+  html += '<p>' + primaryData.whatOthersPull + '</p>';
+  html += '<h3>What it costs over time</h3>';
+  html += '<p>' + primaryData.costOverTime + '</p>';
+  html += '</div>';
+  
+  // Interrupts TEASE (not the actual phrases)
+  html += '<div class="result-interrupts-tease">';
+  html += '<h3>Closing the opening</h3>';
+  html += '<p>There are specific responses that shut this pattern down. Short enough to memorize. Direct enough to work the first time you use them. The book gives you the exact language for each of the ' + primaryData.tactics.length + ' tactics that target your entry point, with the context for when each one works and why.</p>';
   html += '</div>';
   
   html += '</div>'; // close gated-results
   
-  // Book CTA (always visible — below email gate)
+  // BOOK CTA #1 (right after gated content — peak desire)
   html += '<div class="result-book-cta">';
   html += '<p class="result-book-pitch">' + primaryData.bookCTA + '</p>';
   html += '<a href="' + AMAZON_BOOK_URL + '" class="btn btn--primary" target="_blank" rel="noopener" onclick="trackBookClick(\'results_top\')">Get the Book on Amazon</a>';
   html += '</div>';
   
-  // Share Section
+  // Secondary entry point (brief)
+  html += '<div class="full-results" id="full-results">';
+  html += '<h3>Your Secondary: ' + secondaryData.name + '</h3>';
+  html += '<p>' + secondaryData.summary + '</p>';
+  
+  // BOOK CTA #2 (bottom — different angle)
+  html += '<div class="book-cta">';
+  html += '<h3>See all 27 tactics</h3>';
+  html += '<p>You have seen your entry point. You have seen two of the tactics that target it. The book covers all 27. What they sound like. Why they work on you specifically. The responses that end them. Each one mapped to the entry point it exploits, so you go straight to the patterns that apply to your life.</p>';
+  html += '<a href="' + AMAZON_BOOK_URL + '" class="btn btn--primary" id="results-book-link" target="_blank" rel="noopener">Get the Book on Amazon</a>';
+  html += '</div>';
+  html += '</div>'; // .full-results
+  
+  // Share Section (after CTAs — they've made their decision, now share)
   html += '<div class="share-section">';
   html += '<h3>Share your result</h3>';
   html += '<div class="share-buttons">';
@@ -619,37 +640,6 @@ function displayResults(primary, secondary, isDualProfile) {
   
   html += '</div>';
   html += '</div>';
-  
-  // Full Results (hidden until email submitted)
-  html += '<div class="full-results" id="full-results">';
-  html += '<h3>What Others Pull From You</h3>';
-  html += '<p>' + primaryData.whatOthersPull + '</p>';
-  html += '<h3>What It Costs Over Time</h3>';
-  html += '<p>' + primaryData.costOverTime + '</p>';
-  html += '<h3>Your Interrupts</h3>';
-  html += '<p class="interrupts-intro">Phrases that close the opening when you feel it being tested:</p>';
-  html += '<ul class="interrupts-list">';
-  for (var j = 0; j < primaryData.interrupts.length; j++) {
-    html += '<li>' + primaryData.interrupts[j] + '</li>';
-  }
-  html += '</ul>';
-  html += '<h3>Tactics That Target You</h3>';
-  html += '<p class="tactics-intro">From the book — the 5 tactics most likely to use your entry point:</p>';
-  html += '<ul class="tactics-list">';
-  for (var k = 0; k < primaryData.tactics.length; k++) {
-    html += '<li>' + primaryData.tactics[k] + '</li>';
-  }
-  html += '</ul>';
-  html += '<h3>Your Secondary: ' + secondaryData.name + '</h3>';
-  html += '<p>' + secondaryData.summary + '</p>';
-  
-  // Book CTA (bottom — second push, after they've seen everything)
-  html += '<div class="book-cta">';
-  html += '<h3>See All 27 Tactics</h3>';
-  html += '<p>You\'ve seen your entry point and the tactics that target it. The book covers all 27—what they sound like in real conversation, why they work, and the exact responses that end them. No filler. No therapy language. Just the mechanics and the closes.</p>';
-  html += '<a href="' + AMAZON_BOOK_URL + '" class="btn btn--primary" id="results-book-link" target="_blank" rel="noopener">Get the Book on Amazon</a>';
-  html += '</div>';
-  html += '</div>'; // .full-results
   
   resultsContainer.innerHTML = html;
   resultsContainer.classList.add('active');
