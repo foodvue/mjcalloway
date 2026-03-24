@@ -3390,3 +3390,59 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
 .tactic-related a:hover {
   text-decoration: underline;
 }
+
+/* Scroll-triggered assessment CTA bar */
+.scroll-cta-bar {
+  position: fixed;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--accent);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: bottom 0.4s ease;
+}
+.scroll-cta-bar.visible {
+  bottom: 0;
+}
+.scroll-cta-bar p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-family: var(--sans);
+}
+.scroll-cta-bar .btn-gold {
+  padding: 0.4rem 1.2rem;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+.scroll-cta-bar .scroll-cta-close {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0 0.25rem;
+  line-height: 1;
+  margin-left: 0.5rem;
+}
+.scroll-cta-bar .scroll-cta-close:hover {
+  color: var(--text);
+}
+@media (max-width: 600px) {
+  .scroll-cta-bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    text-align: center;
+  }
+  .scroll-cta-bar p {
+    font-size: 0.8125rem;
+    width: 100%;
+  }
+}
