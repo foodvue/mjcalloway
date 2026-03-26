@@ -2,7 +2,7 @@
 (function() {
   var bar = document.createElement('div');
   bar.className = 'scroll-cta-bar';
-  bar.innerHTML = '<p>Find where pressure enters your conversations.</p><a href="/books/close-the-opening/assessment" class="btn-gold">Take the Assessment</a><button class="scroll-cta-close" aria-label="Close">&times;</button>';
+  bar.innerHTML = '<p>Two free assessments. Find your pattern.</p><a href="/assessments" class="btn-gold">Take an Assessment</a><button class="scroll-cta-close" aria-label="Close">&times;</button>';
   document.body.appendChild(bar);
 
   var shown = false;
