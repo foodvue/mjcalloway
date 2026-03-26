@@ -89,8 +89,24 @@
       transition: border-color 0.2s;
     }
     .assessment-card:hover {
-      border-color: var(--accent);
+      border-color: var(--border-light, #2A2A2A);
     }
+    .assessment-card--cto {
+      border-left: 3px solid var(--accent-cto, #C4A35A);
+    }
+    .assessment-card--ddt {
+      border-left: 3px solid var(--accent-ddd, #5A9FB4);
+    }
+    .assessment-card-tag {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .assessment-card-tag--cto { color: var(--accent-cto, #C4A35A); }
+    .assessment-card-tag--ddt { color: var(--accent-ddd, #5A9FB4); }
     .assessment-card-problem {
       font-family: 'Instrument Serif', serif;
       font-size: 1.25rem;
@@ -151,14 +167,16 @@
 
       <div class="assessment-cards">
 
-        <div class="assessment-card">
+        <div class="assessment-card assessment-card--cto">
+          <span class="assessment-card-tag assessment-card-tag--cto">Close the Opening</span>
           <p class="assessment-card-problem">Someone used your kindness against you and you didn't see it until later.</p>
           <p class="assessment-card-action">Find where pressure enters your conversations and which of the 27 tactics you're most vulnerable to.</p>
           <p class="assessment-card-meta">28 questions &middot; 4 minutes &middot; Immediate results</p>
           <a href="/books/close-the-opening/assessment" class="btn-gold">Take the Entry Point Assessment</a>
         </div>
 
-        <div class="assessment-card">
+        <div class="assessment-card assessment-card--ddt">
+          <span class="assessment-card-tag assessment-card-tag--ddt">Digital Dopamine Detox</span>
           <p class="assessment-card-problem">You picked up your phone to check one thing and lost forty minutes.</p>
           <p class="assessment-card-action">Find out why you can't stop, how deep the pattern runs, and which part of the reset matters most for you.</p>
           <p class="assessment-card-meta">23 questions &middot; Under 4 minutes &middot; Immediate results</p>
