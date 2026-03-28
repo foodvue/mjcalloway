@@ -188,7 +188,7 @@ em { font-style: italic; }
 .btn-gold {
   display: inline-block;
   background: #D4AF37;
-  color: #111;
+  color: #000;
   font-family: var(--sans);
   font-size: 0.875rem;
   font-weight: 600;
@@ -200,7 +200,7 @@ em { font-style: italic; }
   border: none;
   cursor: pointer;
 }
-.btn-gold:hover { background: #BF9B30; transform: translateY(-1px); color: #111; }
+.btn-gold:hover { background: #BF9B30; transform: translateY(-1px); color: #000; }
 
 .btn-accent {
   display: inline-block;
@@ -581,7 +581,7 @@ em { font-style: italic; }
 }
 
 /* Blog post CTA box and book mention */
-.blog-cta-box {
+.blog-cta-box, .book-cta-box {
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -590,14 +590,14 @@ em { font-style: italic; }
   text-align: center;
 }
 
-.blog-cta-box h3 {
+.blog-cta-box h3, .book-cta-box h3 {
   font-family: var(--serif);
   font-size: 1.125rem;
   font-weight: 400;
   margin-bottom: 0.75rem;
 }
 
-.blog-cta-box p {
+.blog-cta-box p, .book-cta-box p {
   font-size: 0.9375rem;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
@@ -1997,7 +1997,7 @@ p + p { margin-top: 1rem; }
 .btn-gold {
   display: inline-block;
   background: #D4AF37;
-  color: #111;
+  color: #000;
   font-family: var(--sans);
   font-size: 0.875rem;
   font-weight: 600;
@@ -2010,7 +2010,7 @@ p + p { margin-top: 1rem; }
   cursor: pointer;
 }
 
-.btn-gold:hover { background: #BF9B30; transform: translateY(-1px); color: #111; }
+.btn-gold:hover { background: #BF9B30; transform: translateY(-1px); color: #000; }
 
 .btn-ghost {
   display: inline-block;
