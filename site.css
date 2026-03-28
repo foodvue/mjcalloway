@@ -323,8 +323,8 @@ em { font-style: italic; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 560px;
+  width: 560px;
+  height: 720px;
   background: radial-gradient(ellipse at center,
     rgba(255,255,255,0.035) 0%,
     rgba(255,255,255,0.01) 50%,
@@ -337,7 +337,7 @@ em { font-style: italic; }
 .book-cover-float img {
   position: relative;
   z-index: 1;
-  width: 340px;
+  width: 500px;
   border-radius: 2px;
 }
 
@@ -2419,8 +2419,8 @@ p + p { margin-top: 1rem; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 440px;
+  width: 560px;
+  height: 720px;
   background: radial-gradient(ellipse at center,
     rgba(255,255,255,0.06) 0%,
     rgba(255,255,255,0.02) 50%,
@@ -2433,7 +2433,7 @@ p + p { margin-top: 1rem; }
 .book-cover-wrap img {
   position: relative;
   z-index: 1;
-  width: 200px;
+  width: 400px;
   height: auto;
   border-radius: 2px;
 }
@@ -2675,7 +2675,7 @@ p + p { margin-top: 1rem; }
   }
 
   .book-cover-wrap { order: -1; }
-  .book-cover-wrap img { width: 160px; }
+  .book-cover-wrap img { width: 320px; max-width: 90vw; }
   .book-ctas { justify-content: center; flex-wrap: wrap; }
 
   .assessment-specs { gap: 1.5rem; }
@@ -2800,8 +2800,8 @@ p + p { margin-top: 1rem; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 440px;
+  width: 480px;
+  height: 620px;
   background: radial-gradient(ellipse at center,
     rgba(255,255,255,0.03) 0%,
     rgba(255,255,255,0.008) 50%,
@@ -2811,7 +2811,7 @@ p + p { margin-top: 1rem; }
 }
 
 .book-card-cover img {
-  width: 280px;
+  width: 420px;
   position: relative;
   z-index: 1;
   border-radius: 2px;
@@ -3094,8 +3094,8 @@ a.tool-card:hover .tool-card-link { color: var(--text); }
   .books-grid { grid-template-columns: 1fr; }
   .book-card { text-align: center; }
   .book-card-meta { justify-content: center; }
-  .book-card-cover img { width: 240px; }
-  .book-cover-float img { width: 280px; }
+  .book-card-cover img { width: 340px; max-width: 90vw; }
+  .book-cover-float img { width: 380px; max-width: 90vw; }
 
   .tools-grid { grid-template-columns: 1fr; }
   .latest-grid { grid-template-columns: 1fr; }
