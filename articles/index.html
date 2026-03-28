@@ -74,10 +74,22 @@
         <p class="blog-index-intro fi">Pattern recognition for everyday conversations.</p>
         <p class="fi" style="color: var(--text-dim); font-size: 0.9375rem; margin-top: -0.5rem;">Not sure where to start? <a href="/assessments">Take a free assessment</a>.</p>
 
+        <div class="article-filters fi" style="display:flex;gap:0.5rem;margin:1.5rem 0 0.5rem;">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ddd">Phone Addiction</button>
+          <button class="filter-btn" data-filter="cto">Manipulation</button>
+        </div>
+        <style>
+          .filter-btn{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:0.4rem 1rem;border-radius:20px;font-size:0.8125rem;font-family:var(--sans);cursor:pointer;transition:all 0.2s;}
+          .filter-btn:hover{border-color:var(--text-dim);color:var(--text);}
+          .filter-btn.active{background:var(--bg-card);border-color:var(--text-dim);color:var(--text);}
+          .blog-card.filter-hidden{display:none;}
+        </style>
+
         <div class="blog-grid">
           
           
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="ddd">
             <a href="/articles/how-to-break-phone-addiction">
               <span class="blog-card-tag tag-ddd">Dopamine Detox</span>
               <p class="blog-card-title">How to Break Phone Addiction (A Protocol That Actually Works)</p>
@@ -85,7 +97,7 @@
               <span class="blog-card-meta">12 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="ddd">
             <a href="/articles/what-is-a-dopamine-detox">
               <span class="blog-card-tag tag-ddd">Dopamine Detox</span>
               <p class="blog-card-title">What Is a Dopamine Detox? (And Why Most Advice Gets It Wrong)</p>
@@ -93,7 +105,7 @@
               <span class="blog-card-meta">13 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="ddd">
             <a href="/articles/phone-addiction-and-adhd">
               <span class="blog-card-tag tag-ddd">Dopamine Detox</span>
               <p class="blog-card-title">Phone Addiction and ADHD: Why Standard Advice Fails and What Actually Works</p>
@@ -101,7 +113,7 @@
               <span class="blog-card-meta">11 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/how-to-deal-with-manipulation-at-work">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">How to Deal With a Manipulative Person at Work</p>
@@ -109,7 +121,7 @@
               <span class="blog-card-meta">9 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="ddd">
             <a href="/articles/why-you-cant-stop-checking-your-phone">
               <span class="blog-card-tag tag-ddd">Dopamine Detox</span>
               <p class="blog-card-title">Why You Can't Stop Checking Your Phone (It's Not a Willpower Problem)</p>
@@ -117,7 +129,7 @@
               <span class="blog-card-meta">8 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/signs-someone-is-testing-your-boundaries">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">5 Signs Someone Is Testing Your Boundaries</p>
@@ -125,7 +137,7 @@
               <span class="blog-card-meta">8 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/why-you-keep-solving-problems-that-arent-yours">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">Why You Keep Solving Problems That Aren't Yours (And How to Stop)</p>
@@ -133,7 +145,7 @@
               <span class="blog-card-meta">6 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/why-silence-feels-like-pressure">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">Why Silence Feels Like Pressure (And Why That's the Point)</p>
@@ -141,7 +153,7 @@
               <span class="blog-card-meta">7 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/why-you-over-explain">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">Why You Over-Explain Yourself (And How to Stop)</p>
@@ -149,7 +161,7 @@
               <span class="blog-card-meta">6 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/signs-someone-is-guilt-tripping-you">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">7 Signs Someone Is Guilt-Tripping You</p>
@@ -157,7 +169,7 @@
               <span class="blog-card-meta">7 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/how-to-set-boundaries-without-feeling-guilty">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">How to Set Boundaries Without Feeling Guilty</p>
@@ -165,7 +177,7 @@
               <span class="blog-card-meta">7 min read</span>
             </a>
           </div>
-          <div class="blog-card fi">
+          <div class="blog-card fi" data-category="cto">
             <a href="/articles/how-to-respond-to-emotional-manipulation">
               <span class="blog-card-tag tag-cto">Close the Opening</span>
               <p class="blog-card-title">How to Respond to Emotional Manipulation</p>
@@ -230,6 +242,22 @@
         await BEEHIIV.subscribe(email, 'article');
         note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true;
       } catch(err) { note.textContent = "Something went wrong. Try again."; }
+    });
+
+    // Article filter
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.blog-card[data-category]').forEach(function(card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('filter-hidden');
+          } else {
+            card.classList.add('filter-hidden');
+          }
+        });
+      });
     });
   </script>
 </body>
