@@ -4,7 +4,7 @@
  * Matches CTO assessment structure: email gate via Beehiiv
  */
 
-var DDT_AMAZON_URL = 'https://www.amazon.com/dp/B0F1YP1Y42';
+var DDT_AMAZON_URL = '/books/digital-dopamine-detox/';
 var DDT_SITE_URL = 'https://mjcalloway.com';
 var DDT_ASSESSMENT_URL = 'https://mjcalloway.com/books/digital-dopamine-detox/assessment';
 
@@ -489,7 +489,7 @@ function ddt_showResults() {
   // Book CTA
   html += '<div class="result-book-cta">';
   html += '<p class="result-book-pitch">The assessment shows you where the pattern starts. The book gives you the 30-day protocol to break it. Week-by-week instructions, ADHD modifications in every chapter, and a relapse framework for when you slip.</p>';
-  html += '<a href="' + DDT_AMAZON_URL + '" class="btn btn--primary" target="_blank" rel="noopener">Get the Book on Amazon</a>';
+  html += '<a href="' + DDT_AMAZON_URL + '" class="btn btn--primary" target="_blank" rel="noopener">Learn More About the Book</a>';
   html += '</div>';
   
   // CTO cross-sell
