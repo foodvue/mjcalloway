@@ -1,12 +1,9 @@
 /**
  * Beehiiv Subscription Helper
- * Replaces ConvertKit across mjcalloway.com
+ * Calls /api/subscribe proxy to avoid CORS issues
  */
 
 var BEEHIIV = {
-  PUB_ID: 'pub_4ca40bea-12b3-4e26-af57-3a0c132cf2d1',
-  API_KEY: 'YxecDNQmZTV8M9zVhLZiZx3XW0TOHBetdH4535ROINketYuXPvOD0UclNn7PLpx3',
-
   subscribe: function(email, source, customFields) {
     var fields = [{ name: 'source', value: source || 'website' }];
 
@@ -19,11 +16,10 @@ var BEEHIIV = {
       }
     }
 
-    return fetch('https://api.beehiiv.com/v2/publications/' + BEEHIIV.PUB_ID + '/subscriptions', {
+    return fetch('/api/subscribe', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + BEEHIIV.API_KEY
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: email,
@@ -32,7 +28,7 @@ var BEEHIIV = {
         double_opt_override: 'off'
       })
     }).then(function(res) {
-      if (!res.ok) throw new Error('Beehiiv subscription failed');
+      if (!res.ok) throw new Error('Subscription failed');
       return res.json();
     });
   }
