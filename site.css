@@ -565,6 +565,7 @@ em { font-style: italic; }
 
 .post-body strong { color: var(--text); }
 .post-body a { color: var(--accent); }
+.post-body a.btn-gold { color: #000; }
 
 .post-cta {
   max-width: 560px;
