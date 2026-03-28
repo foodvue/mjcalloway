@@ -5,7 +5,7 @@
 
 var BEEHIIV = {
   PUB_ID: 'pub_4ca40bea-12b3-4e26-af57-3a0c132cf2d1',
-  API_KEY: 'wFiyTdabO7JljPEiRACHxWGZaUXSJIvbZpU3w2NNaycvusW7YgSWH1fYiJhIdy3F',
+  API_KEY: 'YxecDNQmZTV8M9zVhLZiZx3XW0TOHBetdH4535ROINketYuXPvOD0UclNn7PLpx3',
 
   subscribe: function(email, source, customFields) {
     var fields = [{ name: 'source', value: source || 'website' }];
