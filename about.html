@@ -135,6 +135,21 @@
           <h2>Contact</h2>
           <p><a href="mailto:mj@mjcalloway.com">mj@mjcalloway.com</a></p>
         </section>
+
+        <div class="blog-cta-box fi">
+          <h3>Find your pattern</h3>
+          <p>Two free assessments. One identifies where pressure enters your conversations. The other identifies why you can't stop checking your phone. Both take under 4 minutes.</p>
+          <a href="/assessments" class="btn-gold">Take a Free Assessment</a>
+        </div>
+      </div>
+
+      <div class="article-signup fi">
+        <p class="article-signup-line">Get notified when new frameworks and articles drop.</p>
+        <form class="article-signup-form" id="about-newsletter-form">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Subscribe</button>
+        </form>
+        <p class="article-signup-note" id="about-signup-note">No spam. Unsubscribe anytime.</p>
       </div>
     </div>
   </main>
@@ -160,12 +175,22 @@
     </div>
   </footer>
 
+  <script src="/beehiiv.js"></script>
   <script>
     const t=document.querySelector('.nav-toggle'),n=document.querySelector('.site-nav');
     t.addEventListener('click',()=>{const o=t.classList.toggle('active');n.classList.toggle('active');t.setAttribute('aria-expanded',o)});
     const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
     document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+    document.getElementById("about-newsletter-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = this.querySelector("input[name=email]").value;
+      const note = document.getElementById("about-signup-note");
+      try {
+        await BEEHIIV.subscribe(email, 'newsletter');
+        note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true;
+      } catch(err) { note.textContent = "Something went wrong. Try again."; }
+    });
   </script>
 </body>
 </html>
-  <script>

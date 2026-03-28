@@ -187,6 +187,15 @@
 
       <p class="assessments-bottom">Both assessments are processed in your browser. Nothing is stored or shared. No account required.</p>
 
+      <div class="article-signup fi" style="max-width: 500px; margin: 0 auto 4rem;">
+        <p class="article-signup-line">Get notified when new frameworks and articles drop.</p>
+        <form class="article-signup-form" id="assess-newsletter-form">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email" class="signup-input">
+          <button type="submit" class="btn-gold signup-btn">Subscribe</button>
+        </form>
+        <p class="article-signup-note" id="assess-signup-note">No spam. Unsubscribe anytime.</p>
+      </div>
+
     </div>
   </main>
 
@@ -211,9 +220,20 @@
     </div>
   </footer>
 
+  <script src="/beehiiv.js"></script>
   <script>
     const t=document.querySelector('.nav-toggle'),n=document.querySelector('.site-nav');
     t.addEventListener('click',()=>{const o=t.classList.toggle('active');n.classList.toggle('active');t.setAttribute('aria-expanded',o)});
+
+    document.getElementById("assess-newsletter-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = this.querySelector("input[name=email]").value;
+      const note = document.getElementById("assess-signup-note");
+      try {
+        await BEEHIIV.subscribe(email, 'newsletter');
+        note.textContent = "You're in. Watch your inbox."; this.querySelector("input").value = ""; this.querySelector("button").disabled = true;
+      } catch(err) { note.textContent = "Something went wrong. Try again."; }
+    });
   </script>
 </body>
 </html>
